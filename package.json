@@ -15,6 +15,10 @@
   "repository": "git@github.com:BlackGlory/bigint-base.git",
   "author": "BlackGlory <woshenmedoubuzhidao@blackglory.me>",
   "license": "MIT",
+  "sideEffects": false,
+  "engines": {
+    "node": ">= 10.4.0"
+  },
   "scripts": {
     "lint": "eslint --ext .js,.jsx,.ts,.tsx --quiet src __tests__",
     "test": "jest --config jest.config.js",
@@ -35,9 +39,6 @@
       "pre-commit": "run-s lint build test",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
-  },
-  "engines": {
-    "node": ">= 10.4.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
