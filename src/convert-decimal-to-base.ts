@@ -11,7 +11,7 @@ export function convertDecimalToBase(...args:
 
   const [alphabet, val] = args
   const base = BigInt(alphabet.length)
-  const result = []
+  const result: string[] = []
 
   let temp = val
   do {
