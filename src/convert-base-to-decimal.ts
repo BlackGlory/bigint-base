@@ -12,10 +12,12 @@ export function convertBaseToDecimal(...args:
   const [alphabet, val] = args
   const base = BigInt(alphabet.length)
 
-  return val
-    .split('')
-    .reverse()
-    .map(x => alphabet.indexOf(x))
-    .map((x, i) => BigInt(x) * (base ** BigInt(i)))
-    .reduce((acc, cur) => acc + cur)
+  let accumulator = 0n
+  for (let i = val.length; i--;) {
+    const char = val[i]
+    const indexOfAlphabet = alphabet.indexOf(char)
+    const currentValue = BigInt(indexOfAlphabet) * (base ** BigInt(val.length - i - 1))
+    accumulator += currentValue
+  }
+  return accumulator
 }
