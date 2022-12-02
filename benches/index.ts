@@ -3,8 +3,8 @@ import { go } from '@blackglory/prelude'
 import { Benchmark } from 'extra-benchmark'
 
 const benchmark = new Benchmark('bigint-base', {
-  warmUps: 100000
-, runs: 100000
+  warms: 10000
+, runs: 10000
 })
 
 benchmark.addCase('convertBaseToBase', () => {
