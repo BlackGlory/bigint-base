@@ -1,18 +1,41 @@
-import { test, expect } from 'vitest'
+import { describe, test, expect } from 'vitest'
+import { getError } from 'return-style'
 import { convertBaseToDecimal } from '@src/convert-base-to-decimal.js'
 
-test('convertBaseToDecimal(alphabet: string, val: string): bigint', () => {
-  const hex = '0123456789abcdef'
+describe('convertBaseToDecimal', () => {
+  describe('(alphabet: string, val: string): bigint', () => {
+    test('general', () => {
+      const hexAlphabet = '0123456789abcdef'
 
-  const result = convertBaseToDecimal(hex, '10')
+      const result = convertBaseToDecimal(hexAlphabet, '10')
 
-  expect(result).toBe(16n)
-})
+      expect(result).toBe(16n)
+    })
 
-test('convertBaseToDecimal(alphabet: string): (val: string) => bigint', () => {
-  const hex = '0123456789abcdef'
+    test('edge: empty alphabet', () => {
+      const alphabet = ''
 
-  const result = convertBaseToDecimal(hex)('10')
+      const error = getError(() => convertBaseToDecimal(alphabet, '10'))
 
-  expect(result).toBe(16n)
+      expect(error).toBeInstanceOf(Error)
+    })
+  })
+
+  describe('(alphabet: string): (val: string) => bigint', () => {
+    test('general', () => {
+      const hexAlphabet = '0123456789abcdef'
+
+      const result = convertBaseToDecimal(hexAlphabet)('10')
+
+      expect(result).toBe(16n)
+    })
+
+    test('edge: empty alphabet', () => {
+      const alphabet = ''
+
+      const error = getError(() => convertBaseToDecimal(alphabet))
+
+      expect(error).toBeInstanceOf(Error)
+    })
+  })
 })

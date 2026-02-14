@@ -1,3 +1,5 @@
+import { assert } from '@blackglory/prelude'
+
 export function convertBaseToDecimal(alphabet: string, val: string): bigint
 export function convertBaseToDecimal(alphabet: string): (val: string) => bigint
 export function convertBaseToDecimal(...args:
@@ -6,10 +8,22 @@ export function convertBaseToDecimal(...args:
 ) {
   if (args.length === 1) {
     const [alphabet] = args
-    return (val: string) => convertBaseToDecimal(alphabet, val)
+    validateAlphabet(alphabet)
+
+    return (val: string) => _convertBaseToDecimal(alphabet, val)
   }
 
   const [alphabet, val] = args
+  validateAlphabet(alphabet)
+
+  return _convertBaseToDecimal(alphabet, val)
+}
+
+function validateAlphabet(alphabet: string): void {
+  assert(alphabet.length, 'The alphabet must be a non-empty string')
+}
+
+function _convertBaseToDecimal(alphabet: string, val: string): bigint {
   const base = BigInt(alphabet.length)
 
   let accumulator = 0n
