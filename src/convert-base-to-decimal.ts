@@ -1,4 +1,4 @@
-import { assert } from '@blackglory/prelude'
+import { validateAlphabet } from './utils.js'
 
 export function convertBaseToDecimal(alphabet: string, val: string): bigint
 export function convertBaseToDecimal(alphabet: string): (val: string) => bigint
@@ -17,10 +17,6 @@ export function convertBaseToDecimal(...args:
   validateAlphabet(alphabet)
 
   return _convertBaseToDecimal(alphabet, val)
-}
-
-function validateAlphabet(alphabet: string): void {
-  assert(alphabet.length, 'The alphabet must be a non-empty string')
 }
 
 function _convertBaseToDecimal(alphabet: string, val: string): bigint {

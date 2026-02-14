@@ -1,3 +1,5 @@
+import { validateAlphabet } from './utils.js'
+
 export function convertDecimalToBase(alphabet: string, val: bigint): string
 export function convertDecimalToBase(alphabet: string): (val: bigint) => string
 export function convertDecimalToBase(...args:
@@ -6,10 +8,18 @@ export function convertDecimalToBase(...args:
 ) {
   if (args.length === 1) {
     const [alphabet] = args
-    return (val: bigint) => convertDecimalToBase(alphabet, val)
+    validateAlphabet(alphabet)
+
+    return (val: bigint) => _convertDecimalToBase(alphabet, val)
   }
 
   const [alphabet, val] = args
+  validateAlphabet(alphabet)
+
+  return _convertDecimalToBase(alphabet, val)
+}
+
+function _convertDecimalToBase(alphabet: string, val: bigint): string {
   const base = BigInt(alphabet.length)
   const result: string[] = []
 
