@@ -1,3 +1,4 @@
+import { assert } from '@blackglory/prelude'
 import { validateAlphabet } from './utils.js'
 
 export function convertBaseToDecimal(alphabet: string, val: string): bigint
@@ -26,7 +27,14 @@ function _convertBaseToDecimal(alphabet: string, val: string): bigint {
   for (let i = val.length; i--;) {
     const char = val[i]
     const indexOfAlphabet = alphabet.indexOf(char)
-    const currentValue = BigInt(indexOfAlphabet) * (base ** BigInt(val.length - i - 1))
+    assert(
+      indexOfAlphabet >= 0
+    , `The characer ${JSON.stringify(char)} is not in the alphabet`
+    )
+
+    const currentValue = BigInt(indexOfAlphabet)
+                       * (base ** BigInt(val.length - i - 1))
+
     accumulator += currentValue
   }
   return accumulator

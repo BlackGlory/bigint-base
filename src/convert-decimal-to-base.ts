@@ -1,3 +1,4 @@
+import { assert } from '@blackglory/prelude'
 import { validateAlphabet } from './utils.js'
 
 export function convertDecimalToBase(alphabet: string, val: bigint): string
@@ -20,6 +21,8 @@ export function convertDecimalToBase(...args:
 }
 
 function _convertDecimalToBase(alphabet: string, val: bigint): string {
+  validateVal(val)
+
   const base = BigInt(alphabet.length)
   const result: string[] = []
 
@@ -32,4 +35,8 @@ function _convertDecimalToBase(alphabet: string, val: bigint): string {
   return result
     .reverse()
     .join('')
+}
+
+function validateVal(val: bigint): void {
+  assert(val >= 0, 'The val must be greater than or equal to 0')
 }
