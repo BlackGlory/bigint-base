@@ -12,8 +12,8 @@ describe('convertDecimalToBase', () => {
       expect(result).toBe('10')
     })
 
-    test('edge: empty alphabet', () => {
-      const alphabet = ''
+    test('edge: bad alphabet', () => {
+      const alphabet = '0'
 
       const error = getError(() => convertDecimalToBase(alphabet, 16n))
 
@@ -30,8 +30,8 @@ describe('convertDecimalToBase', () => {
       expect(result).toBe('10')
     })
 
-    test('edge: empty alphabet', () => {
-      const alphabet = ''
+    test('edge: bad alphabet', () => {
+      const alphabet = '0'
 
       const error = getError(() => convertDecimalToBase(alphabet))
 
