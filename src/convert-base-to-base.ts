@@ -1,5 +1,5 @@
-import { convertDecimalToBase } from './convert-decimal-to-base'
-import { convertBaseToDecimal } from './convert-base-to-decimal'
+import { convertDecimalToBase } from './convert-decimal-to-base.js'
+import { convertBaseToDecimal } from './convert-base-to-decimal.js'
 
 export function convertBaseToBase(
   srcAlphabet: string

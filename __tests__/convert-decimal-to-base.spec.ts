@@ -1,4 +1,5 @@
-import { convertDecimalToBase } from '@src/convert-decimal-to-base'
+import { test, expect } from 'vitest'
+import { convertDecimalToBase } from '@src/convert-decimal-to-base.js'
 
 test('convertDecimalToBase(alphabet: string, val: bigint): string', () => {
   const hex = '0123456789abcdef'

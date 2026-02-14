@@ -1,4 +1,5 @@
-import { convertBaseToBase } from '@src/convert-base-to-base'
+import { test, expect } from 'vitest'
+import { convertBaseToBase } from '@src/convert-base-to-base.js'
 
 test(`
   convertBaseToBase(
