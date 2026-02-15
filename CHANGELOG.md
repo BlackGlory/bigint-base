@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/BlackGlory/bigint-base/compare/v0.2.0...v0.2.1) (2026-02-15)
+
+
+### Bug Fixes
+
+* **utils:** alphabet must contain only unique characters ([5967fc3](https://github.com/BlackGlory/bigint-base/commit/5967fc3f545a91ba0dbe4cef5af3c50bf20b1c80))
+
 ## [0.2.0](https://github.com/BlackGlory/bigint-base/compare/v0.1.4...v0.2.0) (2026-02-14)
 
 
