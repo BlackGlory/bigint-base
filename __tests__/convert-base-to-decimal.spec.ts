@@ -12,8 +12,16 @@ describe('convertBaseToDecimal', () => {
       expect(result).toBe(16n)
     })
 
-    test('edge: bad alphabet', () => {
+    test('edge: alphabet is too short', () => {
       const alphabet = '0'
+
+      const error = getError(() => convertBaseToDecimal(alphabet, '10'))
+
+      expect(error).toBeInstanceOf(Error)
+    })
+
+    test('edge: bad alphabet', () => {
+      const alphabet = '00'
 
       const error = getError(() => convertBaseToDecimal(alphabet, '10'))
 
@@ -30,8 +38,16 @@ describe('convertBaseToDecimal', () => {
       expect(result).toBe(16n)
     })
 
-    test('edge: bad alphabet', () => {
+    test('edge: alphabet is too short', () => {
       const alphabet = '0'
+
+      const error = getError(() => convertBaseToDecimal(alphabet))
+
+      expect(error).toBeInstanceOf(Error)
+    })
+
+    test('edge: bad alphabet', () => {
+      const alphabet = '00'
 
       const error = getError(() => convertBaseToDecimal(alphabet))
 

@@ -61,6 +61,7 @@
     "vitest": "^4.0.18"
   },
   "dependencies": {
-    "@blackglory/prelude": "^0.4.0"
+    "@blackglory/prelude": "^0.4.0",
+    "iterable-operator": "^5.1.0"
   }
 }
